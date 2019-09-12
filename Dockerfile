@@ -3,12 +3,13 @@ FROM alpine:latest
 MAINTAINER "Tiago Sampaio <tiago@tiagosampaio.com>"
 
 ENV MAGENTO_VERSION=2.3.2 \
-    MAGENTO_EDITION="Open Souce"
+    MAGENTO_EDITION="Open Souce" \
+    MAGENTO_DIR=/magento2
 
 RUN mkdir /magento2 \
     && apk add --no-cache curl \
-    && curl -L http://pubfiles.nexcess.net/magento/ce-packages/magento2-${MAGENTO_VERSION}.tar.gz | tar xzf - -o -C /magento2
+    && curl -L https://github.com/tiagosampaio/magento-opensource-releases/raw/${MAGENTO_VERSION}/magento.tar.bz2 | tar xjf - -o -C /magento2
 
-WORKDIR /magento2
+WORKDIR ${MAGENTO_DIR}
 
 CMD tail -f /dev/null
