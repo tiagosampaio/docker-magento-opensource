@@ -6,9 +6,9 @@ ENV MAGENTO_VERSION=2.3.2 \
     MAGENTO_EDITION="Open Souce" \
     MAGENTO_DIR=/magento
 
-RUN mkdir ${MAGENTO_DIR} \
-    && apk add --no-cache curl \
-    && curl -L https://github.com/tiagosampaio/magento-opensource-releases/archive/${MAGENTO_VERSION}.tar.gz | tar xzf - -o -C ${MAGENTO_DIR}
+RUN apk add --no-cache curl \
+    && curl -L https://github.com/tiagosampaio/magento-opensource-releases/archive/${MAGENTO_VERSION}.tar.gz | tar xzf - -o -C . \
+    && mv magento-opensource-releases* ${MAGENTO_DIR}
 
 WORKDIR ${MAGENTO_DIR}
 
