@@ -2,7 +2,7 @@ FROM alpine:latest
 
 MAINTAINER "Tiago Sampaio <tiago@tiagosampaio.com>"
 
-ENV MAGENTO_VERSION=2.2.9 \
+ENV MAGENTO_VERSION=2.1.18 \
     MAGENTO_EDITION="Open Souce" \
     MAGENTO_DIR=/magento
 
